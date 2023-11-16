@@ -1,10 +1,10 @@
 // App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from './Login';
-import Register from './Register';
-import Dashboard from './Dashboard';
-import SportPage from './SportPage';
+import Login from './components/Login';
+import Register from './components/Register';
+import Dashboard from './components/Dashboard';
+import SportPage from './components/SportPage';
 
 const App = () => {
   const [authToken, setAuthToken] = useState(null);
@@ -12,10 +12,10 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/login" render={(props) => <Login {...props} setAuthToken={setAuthToken} />} />
-        <Route path="/register" component={Register} />
-        <Route path="/dashboard" render={(props) => <Dashboard {...props} authToken={authToken} />} />
-        <Route path="/sport/:id" component={SportPage} />
+        <Route path="/Auth/login" render={(props) => <Login {...props} setAuthToken={setAuthToken} />} />
+        <Route path="/Auth/register" component={Register} />
+        <Route path="/pages/dashboard" render={(props) => <Dashboard {...props} authToken={authToken} />} />
+        <Route path="/pages/sport/:id" component={SportPage} />
         {/* Add more routes as needed */}
       </Switch>
     </Router>
